@@ -43,7 +43,9 @@ g6
 # max mapping
 g7 <- mpg |>
   ggplot() + 
-  geom_point(mapping = aes(x = displ, y = hwy, color = class, size = cyl, shape = drv))
+  geom_point(mapping = aes(x = displ, y = hwy, color = class, size = cyl, shape = drv)) + 
+  stat_density(aes(y = hwy)) + 
+  stat_density(aes(x = displ))
 g7
 
 # fixed color
@@ -61,5 +63,5 @@ g8
 # same var to multiple aesthetics
 g8 <- mpg |>
   ggplot() + 
-  geom_point(mapping = aes(x = displ, y = hwy, size = displ, shape = drv, color = displ))
+  geom_point(mapping = aes(x = displ, y = hwy, size = displ, shape = drv, color = displ)) 
 g8
